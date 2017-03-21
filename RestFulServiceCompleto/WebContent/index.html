@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>First Single Page Application </title>
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script src="js/angular.min.js"></script>
+
+	<script src="js/mainController.js"></script>
+	<!--Controladores-->
+	<script src="js/Controllers/empleadoController.js"></script>
+
+
+</head>
+<body ng-controller="empleadoController">
+	<div class="form-empleado">
+		<h2 class="form-empleado__title">Registro de Empleado</h2>
+
+		<label for="nombreEmpleado">Nombre</label>
+		<input id="nombreEmpleado" class="form-empleado__input-text" type="text" ng-model="nombre"/>
+
+		<label for="apellidoEmpleado">Apellido</label>
+		<input id="apellidoEmpleado" class="form-empleado__input-text" type="text" ng-model="apellido"/>
+
+		<label for="dniEmpleado">Dni</label>
+		<input id="dniEmpleado" class="form-empleado__input-text" type="text" ng-model="dni"/>
+
+		<label for="correoEmpleado">Correo</label>
+		<input id="correoEmpleado" class="form-empleado__input-text" type="text" ng-model="correo"/>
+
+		<label for="edadEmpleado">Edad</label>
+		<input id="edadEmpleado" class="form-empleado__input-text" type="text" ng-model="edad"/>
+
+		<button class="form-empleado_boton" type="submit" ng-click="mantenerEmpleado()">Confirmar</button>
+
+		<center>
+			<table border="1" class="form-empleado_tabla">
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Correo</th>
+					<th>Edad</th>
+					<th>Dni</th>
+					<th colspan="2">Acciones</th>
+				</tr>
+				<tr ng-repeat="emp in listadoEmpleado">
+					<td>{{emp.id}}</td>
+					<td>{{emp.nombre}}</td>
+					<td>{{emp.apellido}}</td>
+					<td>{{emp.correo}}</td> 
+					<td>{{emp.edad}}</td>
+					<td>{{emp.dni}}</td>
+					<td><a href="#" ng-click="buscarEmpleado(emp)">Modificar</a></td>			
+					<td><a href="#" ng-click="eliminarEmpleado(emp)">Eliminar</a></td>			
+				</tr>
+			</table>
+		</center>
+	</div>
+</body>
+</html>
